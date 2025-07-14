@@ -1,0 +1,74 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=2
+        - id: wallet-service
+          uri: lb://wallet-service
+          predicates:
+            - Path=/api/wallet/**
+          filters:
+            - StripPrefix=2
+        - id: betting-service
+          uri: lb://betting-service
+          predicates:
+            - Path=/api/betting/**
+          filters:
+            - StripPrefix=2
+        - id: odds-service
+          uri: lb://odds-service
+          predicates:
+            - Path=/api/odds/**
+          filters:
+            - StripPrefix=2
+        - id: match-service
+          uri: lb://match-service
+          predicates:
+            - Path=/api/matches/**
+          filters:
+            - StripPrefix=2
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - StripPrefix=2
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway
+
+# Gateway specific configurations
+gateway:
+  timeout:
+    connect: 5000
+    response: 30000

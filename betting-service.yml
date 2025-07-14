@@ -1,0 +1,38 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: betting-service
+  datasource:
+    url: jdbc:postgresql://postgres:5432/bettingdb
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+feign:
+  client:
+    config:
+      user-service:
+        connectTimeout: 5000
+        readTimeout: 5000
+      wallet-service:
+        connectTimeout: 5000
+        readTimeout: 5000
+      odds-service:
+        connectTimeout: 5000
+        readTimeout: 5000

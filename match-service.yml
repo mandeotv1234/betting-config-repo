@@ -1,0 +1,33 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: match-service
+  datasource:
+    url: jdbc:postgresql://postgres:5432/matchdb
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+# Match service specific configurations
+match:
+  schedule:
+    update-interval: 300000 # 5 minutes
+  external-api:
+    timeout: 10000 # 10 seconds
+    retry-attempts: 3

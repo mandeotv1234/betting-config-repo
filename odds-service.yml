@@ -1,0 +1,38 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: odds-service
+  datasource:
+    url: jdbc:postgresql://postgres:5432/oddsdb
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cache:
+    type: redis
+  redis:
+    host: redis
+    port: 6379
+    timeout: 2000ms
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+# Odds service specific configurations
+odds:
+  refresh:
+    interval: 30000 # 30 seconds
+  cache:
+    ttl: 60000 # 1 minute
