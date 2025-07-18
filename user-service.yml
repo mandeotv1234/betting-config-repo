@@ -5,7 +5,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/betting_platform
+    url: jdbc:postgresql://localhost:5433/betting_platform
     username: postgres
     password: password
   jpa:
