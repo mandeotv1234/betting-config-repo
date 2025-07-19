@@ -57,6 +57,13 @@ spring:
             allowCredentials: true
 jwt:
   secret: wMq9Sg!tYzN8@rF3bHk2Qx$JvLu6CzDf
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG
+    root: INFO
 eureka:
   client:
     service-url:
