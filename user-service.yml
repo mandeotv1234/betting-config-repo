@@ -78,7 +78,7 @@ logging:
     betting_platform: INFO
     org.springframework.security: WARN
     org.hibernate.SQL: WARN
-     org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.gateway: DEBUG
     org.springframework.web.reactive: DEBUG
     reactor.netty: DEBUG
     root: INFO
