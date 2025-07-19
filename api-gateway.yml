@@ -56,7 +56,7 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true
 jwt:
-  secret: myVerySecretJWTKeyForBettingPlatform2024!
+  secret: wMq9Sg!tYzN8@rF3bHk2Qx$JvLu6CzDf
 eureka:
   client:
     service-url:
