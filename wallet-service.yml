@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: wallet-service
+  liquibase:
+    change-log: classpath:db/changelog/betting-changelog-master.yaml
   datasource:
     url: jdbc:postgresql://localhost:5434/betting_platform
     username: postgres
