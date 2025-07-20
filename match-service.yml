@@ -17,7 +17,7 @@ spring:
       # Nếu bạn cần pool, nên dùng Redis client config riêng hoặc cấu hình bean
 
   datasource:
-    url: jdbc:postgresql://localhost:5436/betting_matches
+    url: jdbc:postgresql://localhost:5436/betting_platform
     username: postgres
     password: password
 
