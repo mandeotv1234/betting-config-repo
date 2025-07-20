@@ -4,27 +4,30 @@ server:
 spring:
   application:
     name: match-service
+
   liquibase:
     change-log: classpath:db/changelog/betting-changelog-master.yaml
 
-  redis:
-    host: localhost
-    port: :6379
-    timeout: 2000ms
-    lettuce:
-      pool:
-        max-active: 8
-        max-idle: 8
-        min-idle: 0
-        max-wait: -1ms
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2000ms
+      # ⚠️ Lettuce pool config bị loại bỏ trong Spring Boot 3+
+      # Nếu bạn cần pool, nên dùng Redis client config riêng hoặc cấu hình bean
+
   datasource:
     url: jdbc:postgresql://localhost:5436/betting_matches
     username: postgres
     password: password
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  main:
+    allow-bean-definition-overriding: true  # ✅ Cho phép override bean nếu cần
 
 eureka:
   client:
@@ -35,15 +38,18 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include:
+          - health
+          - info
+          - metrics
 
-# Match service specific configurations
 match:
   schedule:
     update-interval: 300000 # 5 minutes
   external-api:
     timeout: 10000 # 10 seconds
     retry-attempts: 3
+
 logging:
   level:
     betting_platform: INFO
