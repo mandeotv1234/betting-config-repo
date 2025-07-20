@@ -6,18 +6,17 @@ spring:
     name: wallet-service
   liquibase:
     change-log: classpath:db/changelog/betting-changelog-master.yaml
-    kafka:
+  kafka:
     bootstrap-servers: http://localhost:9092
     consumer:
       group-id: wallet-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       auto-offset-reset: earliest
-      enable-auto-commit: false
+      enable-auto-commit: true  # Bật auto commit
+      auto-commit-interval: 1000  # Commit mỗi 1 giây
       properties:
         spring.json.trusted.packages: "*"
-    listener:
-      ack-mode: manual
   datasource:
     url: jdbc:postgresql://localhost:5434/betting_platform
     username: postgres
