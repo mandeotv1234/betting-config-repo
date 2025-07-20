@@ -68,7 +68,7 @@ management:
       show-details: always
 
 jwt:
-  secret: wMq9Sg!tYzN8@rF3bHk2Qx$JvLu6CzDf
+  secret: 7DFs93hnfAi29LKDs821jxMDlpQW9qAz
   expiration: 86400000  # 24 hours
 
 email:
