@@ -7,6 +7,17 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/betting-changelog-master.yaml
 
+  kafka:
+    bootstrap-servers: http://localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      batch-size: 16384
+      linger-ms: 1
+      buffer-memory: 33554432
+
   datasource:
     url: jdbc:postgresql://localhost:5433/betting_platform
     username: postgres
