@@ -68,7 +68,7 @@ management:
       show-details: always
 
 jwt:
-  secret: mySecretKey
+  secret: wMq9Sg!tYzN8@rF3bHk2Qx$JvLu6CzDf
   expiration: 86400000  # 24 hours
 
 email:
