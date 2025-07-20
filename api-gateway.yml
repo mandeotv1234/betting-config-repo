@@ -56,7 +56,7 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true
 jwt:
-  secret: 7DFs93hnfAi29LKDs821jxMDlpQW9qAz
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5969
 
 logging:
   level:
